@@ -1,0 +1,149 @@
+{
+  "title": "Understanding Deep Learning: Concepts, Working, Applications, and Limitations",
+  "topics": [
+    "Deep Learning Definition",
+    "Machine Learning vs. Deep Learning",
+    "Artificial Neural Networks",
+    "Working of Neural Networks",
+    "Applications of Deep Learning",
+    "Limitations of Deep Learning",
+    "Deep Learning Frameworks",
+    "Future of Deep Learning"
+  ],
+  "sections": [
+    {
+      "heading": "Introduction to Deep Learning",
+      "bullets": [
+        {
+          "text": "Deep learning powers advanced functionalities like language translation and image grouping.",
+          "timestamp": "00:10"
+        },
+        {
+          "text": "It is a subset of machine learning, which is a subset of artificial intelligence.",
+          "timestamp": "00:15"
+        },
+        {
+          "text": "AI enables machines to mimic human behavior.",
+          "timestamp": "00:21"
+        },
+        {
+          "text": "Machine learning achieves AI through algorithms trained with data.",
+          "timestamp": "00:26"
+        },
+        {
+          "text": "Deep learning is a type of machine learning inspired by the human brain's structure, called an artificial neural network.",
+          "timestamp": "00:32"
+        }
+      ]
+    },
+    {
+      "heading": "Deep Learning vs. Machine Learning",
+      "bullets": [
+        {
+          "text": "Example: Differentiating tomatoes and cherries.",
+          "timestamp": "00:47"
+        },
+        {
+          "text": "Machine learning requires humans to define differentiating features (e.g., size, stem type).",
+          "timestamp": "00:52"
+        },
+        {
+          "text": "Deep learning neural networks automatically pick out features without human intervention.",
+          "timestamp": "01:02"
+        },
+        {
+          "text": "This independence comes at the cost of requiring a much higher volume of data for training.",
+          "timestamp": "01:08"
+        }
+      ]
+    },
+    {
+      "heading": "How Neural Networks Work",
+      "bullets": [
+        {
+          "text": "Neural networks identify patterns, like handwritten digits, which humans easily recognize.",
+          "timestamp": "01:31"
+        },
+        {
+          "text": "An image (e.g., 28x28 pixels) is broken down into individual pixels (784 in this case).",
+          "timestamp": "01:41"
+        },
+        {
+          "text": "Each pixel is fed to a neuron in the input layer of the neural network.",
+          "timestamp": "01:56"
+        },
+        {
+          "text": "Information passes through hidden layers to an output layer, where each neuron represents a digit.",
+          "timestamp": "02:05"
+        },
+        {
+          "text": "Information transfer occurs via weighted channels, and neurons have a unique bias.",
+          "timestamp": "02:17"
+        },
+        {
+          "text": "The weighted sum of inputs plus bias is fed to an activation function, determining neuron activation and information flow.",
+          "timestamp": "02:27"
+        },
+        {
+          "text": "The network continuously adjusts weights and biases to improve accuracy.",
+          "timestamp": "02:55"
+        }
+      ]
+    },
+    {
+      "heading": "Applications of Deep Learning",
+      "bullets": [
+        {
+          "text": "Customer support: AI bots provide realistic conversations.",
+          "timestamp": "03:03"
+        },
+        {
+          "text": "Medical care: Neural networks detect cancer cells and analyze MRI images.",
+          "timestamp": "03:14"
+        },
+        {
+          "text": "Self-driving cars: Companies like Apple, Tesla, and Nissan are developing autonomous vehicles.",
+          "timestamp": "03:21"
+        }
+      ]
+    },
+    {
+      "heading": "Limitations of Deep Learning",
+      "bullets": [
+        {
+          "text": "Data volume: Neural networks require a massive amount of data for training, especially for unstructured data.",
+          "timestamp": "03:38"
+        },
+        {
+          "text": "Computational power: Training requires powerful graphical processing units (GPUs) with thousands of cores, which are expensive.",
+          "timestamp": "03:53"
+        },
+        {
+          "text": "Training time: Deep neural networks can take hours or even months to train, depending on data volume and network complexity.",
+          "timestamp": "04:14"
+        }
+      ]
+    },
+    {
+      "heading": "Deep Learning Frameworks and Future Outlook",
+      "bullets": [
+        {
+          "text": "Popular frameworks include TensorFlow, PyTorch, Keras, Deeplearning4j, Caffe, and Microsoft Cognitive Toolkit.",
+          "timestamp": "04:53"
+        },
+        {
+          "text": "Deep learning and AI are still in early stages, with vast potential for future development.",
+          "timestamp": "05:02"
+        },
+        {
+          "text": "Example: Hori's technology uses deep learning with computer vision to describe the world for the blind.",
+          "timestamp": "05:09"
+        },
+        {
+          "text": "Replicating the human mind may soon move from science fiction to reality.",
+          "timestamp": "05:17"
+        }
+      ]
+    }
+  ]
+}

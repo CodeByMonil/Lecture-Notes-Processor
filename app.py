@@ -151,7 +151,7 @@ with col2:
 with st.sidebar:
     st.header("📂 Upload or Select a File")
     up = st.file_uploader(
-        "Upload Audio / Video / PDF / TXT",
+        "Upload Audio / PDF / TXT",
         type=["mp3", "wav", "m4a", "mp4", "mov", "pdf", "txt", "md"],
     )
     uploaded_path = None
