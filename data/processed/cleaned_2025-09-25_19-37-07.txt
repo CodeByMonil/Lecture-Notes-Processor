@@ -1,0 +1,71 @@
+[00:00] Ever wondered how Google translates an entire webpage to a different language in a matter of seconds?
+[00:06] Or your phone gallery groups images based on their location?
+[00:10] All of this is a product of deep learning.
+[00:12] But what exactly is deep learning?
+[00:15] Deep learning is a subset of machine learning, which in turn is a subset of artificial intelligence.
+[00:21] Artificial intelligence is a technique that enables a machine to mimic human behavior.
+[00:26] Machine learning is a technique to achieve AI through algorithms trained with data.
+[00:32] And finally, deep learning is a type of machine learning inspired by the structure of the human brain.
+[00:38] In terms of deep learning, this structure is called an artificial neural network.
+[00:43] Let's understand deep learning better and how it's different from machine learning.
+[00:47] Say we create a machine that could differentiate between tomatoes and cherries.
+[00:52] If done using machine learning, we'd have to tell the machine the features based on which the two can be differentiated.
+[00:58] These features could be the size and the type of stem on them.
+[01:02] With deep learning, on the other hand, the features are picked out by the neural network without human intervention.
+[01:08] Of course, that kind of independence comes at the cost of having a much higher volume of data to train our machine.
+[01:15] Now, let's dive into the working of neural networks.
+[01:19] Here, we have three students. Each of them write down the digit nine on a piece of paper.
+[01:25] Notably, they don't all write it identically.
+[01:28] The human brain can easily recognize the digits.
+[01:31] But what if a computer had to recognize them?
+[01:34] That's where deep learning comes in.
+[01:37] Here's a neural network trained to identify handwritten digits.
+[01:41] Each number is present as an image of 28 x 28 pixels.
+[01:45] Now, that amounts to a total of 784 pixels.
+[01:50] Neurons, the core entity of a neural network, is where the information processing takes place.
+[01:56] Each of the 784 pixels is fed to a neuron in the first layer of our neural network.
+[02:02] This forms the input layer.
+[02:05] On the other end, we have the output layer with each neuron representing a digit, with the hidden layers existing between them.
+[02:12] The information is transferred from one layer to another over connecting channels.
+[02:17] Each of these has a value attached to it, and hence is called a weighted channel.
+[02:22] All neurons have a unique number associated with it, called bias.
+[02:27] This bias is added to the weighted sum of inputs reaching the neuron, which is then applied to a function known as the activation function.
+[02:37] The result of the activation function determines if the neuron gets activated.
+[02:42] Every activated neuron passes on information to the following layers.
+[02:46] This continues up till the second last layer.
+[02:50] The one neuron activated in the output layer corresponds to the input digit.
+[02:55] The weights and bias are continuously adjusted to produce a well-trained network.
+[03:00] So, where is deep learning applied?
+[03:03] In customer support, when most people converse with customer support agents, the conversation seems so real, they don't even realize that it's actually a bot on the other side.
+[03:14] In medical care, neural networks detect cancer cells and analyze MRI images to give detailed results.
+[03:21] Self-driving cars. What seemed like science fiction is now a reality.
+[03:26] Apple, Tesla, and Nissan are only a few of the companies working on self-driving cars.
+[03:32] So, deep learning has a vast scope.
+[03:35] But it too faces some limitations.
+[03:38] The first, as we discussed earlier, is data.
+[03:41] While deep learning is the most efficient way to deal with unstructured data, a neural network requires a massive volume of data to train.
+[03:49] Let's assume we always have access to the necessary amount of data.
+[03:53] Processing this is not within the capability of every machine.
+[03:57] And that brings us to our second limitation: computational power.
+[04:02] Training a neural network requires graphical processing units, which have thousands of cores as compared to CPUs.
+[04:10] And GPUs are, of course, more expensive.
+[04:14] And finally, we come down to training time.
+[04:17] Deep neural networks take hours or even months to train.
+[04:21] The time increases with the amount of data and number of layers in the network.
+[04:26] So, here's a short quiz for you.
+[04:28] Arrange the following statements in order to describe the working of a neural network.
+[04:33] A. The bias is added.
+[04:36] B. The weighted sum of the inputs is calculated.
+[04:39] C. Specific neuron is activated.
+[04:43] D. The result is fed to an activation function.
+[04:46] Leave your answers in the comment section below.
+[04:49] Three of you stand a chance to win Amazon vouchers. So hurry!
+[04:53] Some of the popular deep learning frameworks include TensorFlow, PyTorch, Keras, Deeplearning4j, Caffe, and Microsoft Cognitive Toolkit.
+[05:02] Considering the future predictions for deep learning and AI, we seem to have only scratched the surface.
+[05:09] In fact, Hori's technology is working on a device for the blind that uses deep learning with computer vision to describe the world to the users.
+[05:17] Replicating the human mind in its entirety may not just be an episode of science fiction for too long.
+[05:24] The future is indeed full of surprises.
+[05:27] And that is deep learning for you in short.
+[05:30] If you enjoyed this video, do like and share it.
+[05:33] Also, subscribe to our channel if you haven't yet, as we have a lot more exciting videos coming up.
+[05:39] Fun learning till then.

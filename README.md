@@ -24,29 +24,45 @@
 3. **Slide Generator Agent** – turns the outline into a PowerPoint (`.pptx`).
 
 
-## Quickstart
-1. **Install Python 3.12** and **FFmpeg** (for audio).  
-2. **Create API key (free)** in Google AI Studio → copy to `.env`.  
-3. `pip install -r requirements.txt`  
-4. `streamlit run app.py` → open the local URL in your browser.  
-5. Upload a lecture audio (mp3/wav) or text/PDF transcript → click **Run**.  
-6. Download the generated **.pptx** from the UI.
+# Quickstart & Setup
+
+## Prerequisites
+1. **Install Python 3.12** and **FFmpeg** (for audio processing).
+2. **Create an API key (free)** in [Google AI Studio](https://console.cloud.google.com/), and copy it into the `.env` file.
 
 ## Setup & Run
-```powershell
-# 1. Clone the repository
-git clone <your-repo-url>
-cd IT3041-IRWA
 
-# 2. Create a virtual environment with Python 3.12
-py -3.12 -m venv .venv
+1. **Clone the Repository**
+   ```bash
+   git clone <your-repo-url>
+   cd IT3041-IRWA
+   ```
 
-# 3. Activate the virtual environment
-.venv\Scripts\activate
+2. **Create a Virtual Environment** (Python 3.12)
+   ```bash
+   py -3.12 -m venv .venv
+   ```
 
-# 4. Upgrade pip and install dependencies
-python -m pip install --upgrade pip
-pip install -r requirements.txt
+3. **Activate the Virtual Environment**
+   * On **Windows**:
+     ```bash
+     .venv\Scripts\activate
+     ```
+   * On **macOS/Linux**:
+     ```bash
+     source .venv/bin/activate
+     ```
 
-# 5. Run the Streamlit app
-streamlit run app.py
+4. **Upgrade pip** and **Install Dependencies**
+   ```bash
+   python -m pip install --upgrade pip
+   pip install -r requirements.txt
+   ```
+
+5. **Run the Streamlit App**
+   ```bash
+   streamlit run app.py
+   ```
+
+6. **Upload a Lecture** (audio: `.mp3` or `.wav`, text/PDF transcript) and click **Run**.  
+   After processing, download the generated **`.pptx`** presentation from the UI.
