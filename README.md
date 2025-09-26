@@ -1,6 +1,6 @@
 # Lecture Notes Processor – Multi‑Agent App (Gemini API)
 
-> **IRWA Group Project – Y3S1 (Semester 2, 2025)**
+> **IRWA Group Project – Y3S1 (July - December, 2025)**
 
 ## Group Members
 
