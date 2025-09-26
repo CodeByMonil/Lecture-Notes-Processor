@@ -43,14 +43,14 @@ The system follows an **agentic architecture**:
 
 ## Prerequisites
 1. **Install Python 3.12** and **FFmpeg** (for audio processing).
-2. **Create an API key (free)** in [Google AI Studio](https://console.cloud.google.com/), and copy it into the `.env` file.
+2. **Create an API key (free)** in [Google AI Studio](https://aistudio.google.com/api-keys), and copy it into the `.env` file.
 
 ## Setup & Run
 
 1. **Clone the Repository**
    ```bash
-   git clone <your-repo-url>
-   cd IT3041-IRWA
+   git clone https://github.com/CodeByMonil/Lecture-Notes-Processor.git
+   cd Lecture-Notes-Processor
    ```
 
 2. **Create a Virtual Environment** (Python 3.12)
