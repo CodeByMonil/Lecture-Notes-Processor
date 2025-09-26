@@ -1,0 +1,132 @@
+{
+  "title": "Deep Learning Explained",
+  "topics": [
+    "Deep Learning",
+    "Machine Learning",
+    "Artificial Intelligence",
+    "Neural Networks",
+    "AI Applications",
+    "Deep Learning Limitations",
+    "Deep Learning Frameworks"
+  ],
+  "sections": [
+    {
+      "heading": "Introduction to Deep Learning",
+      "bullets": [
+        {
+          "text": "Deep learning powers features like Google Translate and image grouping.",
+          "timestamp": "00:00"
+        },
+        {
+          "text": "It is a subset of machine learning, which is a subset of artificial intelligence.",
+          "timestamp": "00:15"
+        },
+        {
+          "text": "AI mimics human behavior, and machine learning achieves AI through data-trained algorithms.",
+          "timestamp": "00:21"
+        },
+        {
+          "text": "Deep learning is inspired by the human brain's structure, called an artificial neural network.",
+          "timestamp": "00:32"
+        }
+      ]
+    },
+    {
+      "heading": "Deep Learning vs. Machine Learning",
+      "bullets": [
+        {
+          "text": "Machine learning requires explicit feature definition (e.g., size, stem type) for differentiation.",
+          "timestamp": "00:52"
+        },
+        {
+          "text": "Deep learning neural networks automatically pick out features without human intervention.",
+          "timestamp": "01:02"
+        },
+        {
+          "text": "This independence comes at the cost of requiring a much higher volume of training data.",
+          "timestamp": "01:08"
+        }
+      ]
+    },
+    {
+      "heading": "How Neural Networks Work",
+      "bullets": [
+        {
+          "text": "Neural networks are trained to identify patterns, like handwritten digits (e.g., a 28x28 pixel image).",
+          "timestamp": "01:37"
+        },
+        {
+          "text": "Each pixel is fed to a neuron in the input layer, processed through hidden layers, and results in an output layer.",
+          "timestamp": "01:56"
+        },
+        {
+          "text": "Information transfers via weighted channels and a unique bias for each neuron.",
+          "timestamp": "02:17"
+        },
+        {
+          "text": "An activation function determines if a neuron gets activated and passes information to the next layer.",
+          "timestamp": "02:32"
+        },
+        {
+          "text": "Weights and biases are continuously adjusted to train the network effectively.",
+          "timestamp": "02:55"
+        }
+      ]
+    },
+    {
+      "heading": "Applications of Deep Learning",
+      "bullets": [
+        {
+          "text": "Customer support: realistic conversational bots that mimic human interaction.",
+          "timestamp": "03:03"
+        },
+        {
+          "text": "Medical care: detecting cancer cells and analyzing MRI images for detailed results.",
+          "timestamp": "03:14"
+        },
+        {
+          "text": "Self-driving cars: a growing reality with companies like Apple, Tesla, and Nissan.",
+          "timestamp": "03:21"
+        }
+      ]
+    },
+    {
+      "heading": "Limitations of Deep Learning",
+      "bullets": [
+        {
+          "text": "Data: Requires a massive volume of data for training, especially for unstructured data.",
+          "timestamp": "03:38"
+        },
+        {
+          "text": "Computational power: Needs powerful graphical processing units (GPUs) with thousands of cores, which are expensive.",
+          "timestamp": "03:53"
+        },
+        {
+          "text": "Training time: Deep neural networks can take hours or even months to train, increasing with data and network layers.",
+          "timestamp": "04:14"
+        }
+      ]
+    },
+    {
+      "heading": "Frameworks and Future of Deep Learning",
+      "bullets": [
+        {
+          "text": "Popular deep learning frameworks include TensorFlow, PyTorch, Keras, and Caffe.",
+          "timestamp": "04:53"
+        },
+        {
+          "text": "The field is still in its early stages, with vast future potential.",
+          "timestamp": "05:02"
+        },
+        {
+          "text": "Innovations like devices for the blind using deep learning and computer vision are emerging.",
+          "timestamp": "05:09"
+        },
+        {
+          "text": "Replicating the human mind may soon move from science fiction to reality.",
+          "timestamp": "05:17"
+        }
+      ]
+    }
+  ]
+}

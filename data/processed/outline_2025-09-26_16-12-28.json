@@ -1,0 +1,123 @@
+{
+  "title": "Machine Learning Basics",
+  "topics": [
+    "Supervised Learning",
+    "Unsupervised Learning",
+    "Reinforcement Learning",
+    "Machine Learning Challenges",
+    "Machine Learning Applications"
+  ],
+  "sections": [
+    {
+      "heading": "Introduction to Machine Learning",
+      "bullets": [
+        {
+          "text": "Machine Learning teaches computers to learn from data.",
+          "timestamp": "00:00"
+        },
+        {
+          "text": "It replaces explicit rules with data-driven learning.",
+          "timestamp": "00:00"
+        }
+      ]
+    },
+    {
+      "heading": "Types of Machine Learning: Supervised Learning",
+      "bullets": [
+        {
+          "text": "System trained on labeled data.",
+          "timestamp": "00:00"
+        },
+        {
+          "text": "Example: Email marked as spam or not spam.",
+          "timestamp": "00:00"
+        },
+        {
+          "text": "Model learns patterns to predict unseen cases.",
+          "timestamp": "00:00"
+        },
+        {
+          "text": "Common algorithms: Decision trees, SVMs, neural networks.",
+          "timestamp": "00:00"
+        }
+      ]
+    },
+    {
+      "heading": "Types of Machine Learning: Unsupervised Learning",
+      "bullets": [
+        {
+          "text": "System finds patterns without labels.",
+          "timestamp": "00:50"
+        },
+        {
+          "text": "Example: Clustering customers by purchasing behavior.",
+          "timestamp": "00:50"
+        },
+        {
+          "text": "K-means is a classic algorithm.",
+          "timestamp": "00:50"
+        }
+      ]
+    },
+    {
+      "heading": "Types of Machine Learning: Reinforcement Learning",
+      "bullets": [
+        {
+          "text": "Agent interacts with an environment.",
+          "timestamp": "01:00"
+        },
+        {
+          "text": "Learns from feedback or rewards.",
+          "timestamp": "01:00"
+        },
+        {
+          "text": "Example: AI playing video games or controlling robots.",
+          "timestamp": "01:00"
+        }
+      ]
+    },
+    {
+      "heading": "Challenges in Machine Learning",
+      "bullets": [
+        {
+          "text": "Overfitting: Model memorizes training data, performs poorly on new data.",
+          "timestamp": "01:20"
+        },
+        {
+          "text": "Bias: Data itself is not balanced.",
+          "timestamp": "01:20"
+        }
+      ]
+    },
+    {
+      "heading": "Applications of Machine Learning",
+      "bullets": [
+        {
+          "text": "Healthcare: Disease prediction.",
+          "timestamp": "01:30"
+        },
+        {
+          "text": "Finance: Fraud detection.",
+          "timestamp": "01:30"
+        },
+        {
+          "text": "Self-driving cars: Object recognition.",
+          "timestamp": "01:30"
+        }
+      ]
+    },
+    {
+      "heading": "Next Lecture Preview",
+      "bullets": [
+        {
+          "text": "Will cover evaluation metrics.",
+          "timestamp": "01:40"
+        },
+        {
+          "text": "Metrics include accuracy, precision, recall, and F1-score.",
+          "timestamp": "01:40"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "title": "Machine Learning Basics",
+  "topics": [
+    "Machine Learning",
+    "Supervised Learning",
+    "Unsupervised Learning",
+    "Reinforcement Learning",
+    "Overfitting",
+    "Bias",
+    "Applications"
+  ],
+  "sections": [
+    {
+      "heading": "Introduction to Machine Learning",
+      "bullets": [
+        {
+          "text": "Machine learning teaches computers to learn from data instead of explicit rules.",
+          "timestamp": "00:00"
+        }
+      ]
+    },
+    {
+      "heading": "Supervised Learning",
+      "bullets": [
+        {
+          "text": "System trained on labeled data (e.g., spam/not spam emails).",
+          "timestamp": "00:00"
+        },
+        {
+          "text": "Model learns patterns to predict unseen cases.",
+          "timestamp": "00:00"
+        },
+        {
+          "text": "Common algorithms: decision trees, support vector machines, neural networks.",
+          "timestamp": "00:00"
+        }
+      ]
+    },
+    {
+      "heading": "Unsupervised Learning",
+      "bullets": [
+        {
+          "text": "System finds patterns without labels.",
+          "timestamp": "00:00"
+        },
+        {
+          "text": "Example: clustering customers based on purchasing behavior.",
+          "timestamp": "00:00"
+        },
+        {
+          "text": "K-means is a classic algorithm example.",
+          "timestamp": "00:00"
+        }
+      ]
+    },
+    {
+      "heading": "Reinforcement Learning",
+      "bullets": [
+        {
+          "text": "Agent interacts with an environment and learns from feedback or rewards.",
+          "timestamp": "00:00"
+        },
+        {
+          "text": "Examples: training AI to play video games or control a robot.",
+          "timestamp": "00:00"
+        }
+      ]
+    },
+    {
+      "heading": "Challenges in Machine Learning",
+      "bullets": [
+        {
+          "text": "Overfitting: model memorizes training data, performs poorly on new data.",
+          "timestamp": "01:00"
+        },
+        {
+          "text": "Bias: occurs when the data itself is not balanced.",
+          "timestamp": "01:00"
+        }
+      ]
+    },
+    {
+      "heading": "Applications of Machine Learning",
+      "bullets": [
+        {
+          "text": "Healthcare: disease prediction.",
+          "timestamp": "01:00"
+        },
+        {
+          "text": "Finance: fraud detection.",
+          "timestamp": "01:00"
+        },
+        {
+          "text": "Self-driving cars: object recognition.",
+          "timestamp": "01:00"
+        }
+      ]
+    },
+    {
+      "heading": "Next Lecture Preview",
+      "bullets": [
+        {
+          "text": "Will cover evaluation metrics: accuracy, precision, recall, and F1-score.",
+          "timestamp": "01:00"
+        }
+      ]
+    }
+  ]
+}

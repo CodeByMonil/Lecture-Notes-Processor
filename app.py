@@ -7,6 +7,7 @@ import time
 from agents.transcript_cleaner import transcribe_and_clean
 from agents.keypoints_extractor import extract_outline
 from agents.slide_generator import outline_to_pptx
+from agents.retriever import retrieve_context  # ✅ KB retrieval
 
 # Utils
 from utils.fs import DATA_IN
@@ -484,9 +485,20 @@ with st.sidebar:
     
     st.markdown("---")
     
+    # KB Integration Toggle
+    st.markdown("### 🧠 AI Enhancement")
+    use_kb = st.checkbox(
+        "Use Knowledge Base for better content", 
+        value=True,
+        help="Leverage existing course materials to enhance slide quality"
+    )
+    
+    st.markdown("---")
+    
     # Process Button
     if st.button("🚀 Process Lecture Notes", type="primary", use_container_width=True):
         st.session_state.run_pipeline = True
+        st.session_state.use_kb = use_kb
 
 # --------------------------
 # PROCESSING PIPELINE
@@ -502,27 +514,75 @@ if st.session_state.get('run_pipeline', False):
         try:
             # Step 1: Transcription & Cleaning
             with st.spinner("🎤 Transcribing lecture content..."):
-                status_text.text("Step 1/3: Transcribing audio/text content...")
+                status_text.text("Step 1/4: Transcribing audio/text content...")
                 cleaned, cleaned_path = transcribe_and_clean(str(path))
-                progress_bar.progress(33)
+                progress_bar.progress(25)
                 time.sleep(0.5)
             
-            # Step 2: Key Points Extraction
+            # # Step 2: Knowledge Base Retrieval (if enabled)
+            # kb_context = ""
+            # if st.session_state.get('use_kb', True):
+            #     with st.spinner("🧠 Retrieving relevant knowledge..."):
+            #         status_text.text("Step 2/4: Enhancing with knowledge base...")
+            #         try:
+            #             kb_context = retrieve_context(cleaned)
+            #             st.info(f"📚 Retrieved {len(kb_context.split())} words of relevant context")
+            #         except Exception as kb_error:
+            #             st.warning(f"⚠️ Knowledge base retrieval skipped: {str(kb_error)}")
+            #             kb_context = ""
+            #     progress_bar.progress(50)
+            #     time.sleep(0.5)
+            # else:
+            #     progress_bar.progress(50)  # Skip directly to next step
+
+            # Step 2: Knowledge Base Retrieval (if enabled)
+            kb_context = ""
+            if st.session_state.get('use_kb', True):
+                with st.spinner("🧠 Retrieving relevant knowledge..."):
+                    status_text.text("Step 2/4: Enhancing with knowledge base...")
+                    try:
+                        # Try main retriever first
+                        kb_context = retrieve_context(cleaned)
+                        if "error" in kb_context.lower() or "not available" in kb_context.lower():
+                            st.warning("Using simple retrieval mode")
+                            from agents.retriever import simple_retrieve_context
+                            kb_context = simple_retrieve_context(cleaned)
+                    except Exception as kb_error:
+                        st.warning(f"⚠️ Knowledge base retrieval failed: {str(kb_error)}")
+                        # Use simple fallback
+                        from agents.retriever import simple_retrieve_context
+                        kb_context = simple_retrieve_context(cleaned)    
+
+                
+            
+            # Step 3: Key Points Extraction (with KB context if available)
             with st.spinner("🔍 Extracting key concepts..."):
-                status_text.text("Step 2/3: Analyzing content structure...")
-                outline, outline_path = extract_outline(cleaned)
-                progress_bar.progress(66)
+                status_text.text("Step 3/4: Analyzing content structure...")
+                
+                # Combine cleaned text with KB context for better extraction
+                enhanced_content = cleaned
+                if kb_context:
+                    enhanced_content = f"{cleaned}\n\nRelevant Context:\n{kb_context}"
+                
+                outline, outline_path = extract_outline(enhanced_content)
+                progress_bar.progress(75)
                 time.sleep(0.5)
             
-            # Step 3: Slide Generation
+            # Step 4: Slide Generation
             with st.spinner("📊 Creating presentation slides..."):
-                status_text.text("Step 3/3: Generating professional slides...")
+                status_text.text("Step 4/4: Generating professional slides...")
                 pptx_path = outline_to_pptx(outline, filename_stem=Path(path).stem)
                 progress_bar.progress(100)
                 time.sleep(0.5)
             
             # Success Message
             status_text.success("✅ Lecture processed successfully! Download your presentation below.")
+            
+            # Show KB usage status
+            if st.session_state.get('use_kb', True) and kb_context:
+                st.success("🎯 Knowledge Base was used to enhance content quality")
+            elif not st.session_state.get('use_kb', True):
+                st.info("ℹ️ Knowledge Base was disabled for this processing")
             
             # Success Animation
             if LOTTIE_AVAILABLE:
@@ -538,7 +598,7 @@ if st.session_state.get('run_pipeline', False):
         st.markdown("---")
         st.markdown("## 📋 Processing Results")
         
-        tab1, tab2, tab3 = st.tabs(["🎯 Cleaned Content", "📑 Structured Outline", "🎞 Presentation Slides"])
+        tab1, tab2, tab3, tab4 = st.tabs(["🎯 Cleaned Content", "📚 KB Context", "📑 Structured Outline", "🎞 Presentation Slides"])
         
         with tab1:
             col1, col2 = st.columns([3, 1])
@@ -557,6 +617,25 @@ if st.session_state.get('run_pipeline', False):
                 st.text_area("Content", cleaned, height=300, label_visibility="collapsed")
         
         with tab2:
+            if kb_context:
+                col1, col2 = st.columns([3, 1])
+                with col1:
+                    st.subheader("Knowledge Base Context")
+                    st.success("✅ Enhanced with relevant course materials")
+                with col2:
+                    st.download_button(
+                        "📥 Download Context",
+                        data=kb_context,
+                        file_name=f"kb_context_{Path(path).stem}.txt",
+                        use_container_width=True
+                    )
+                
+                with st.expander("View KB context", expanded=False):
+                    st.text_area("Knowledge Base Content", kb_context, height=200, label_visibility="collapsed")
+            else:
+                st.info("ℹ️ No knowledge base context was used or available for this content")
+        
+        with tab3:
             col1, col2 = st.columns([3, 1])
             with col1:
                 st.subheader("Content Structure Analysis")
@@ -572,12 +651,14 @@ if st.session_state.get('run_pipeline', False):
             with st.expander("View content structure", expanded=False):
                 st.json(outline.model_dump())
         
-        with tab3:
+        with tab4:
             col1, col2 = st.columns([3, 1])
             with col1:
                 st.subheader("Generated Presentation")
                 st.success("🎉 Professional slides ready for your lecture!")
                 st.markdown(f"**File:** `{Path(pptx_path).name}`")
+                if kb_context:
+                    st.caption("✅ Enhanced with knowledge base content")
             with col2:
                 with open(pptx_path, "rb") as f:
                     st.download_button(
@@ -612,7 +693,7 @@ if not st.session_state.get('run_pipeline', False):
     st.markdown("---")
     st.markdown("## 🚀 How It Works")
     
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3, col4 = st.columns(4)
     
     with col1:
         st.markdown("### 1. Upload Materials")
@@ -624,7 +705,16 @@ if not st.session_state.get('run_pipeline', False):
         """)
     
     with col2:
-        st.markdown("### 2. AI Analysis")
+        st.markdown("### 2. Knowledge Enhancement")
+        st.markdown("""
+        - **Smart Retrieval**: Finds relevant course materials
+        - **Context Enrichment**: Enhances with existing knowledge
+        - **Quality Boost**: Improves content accuracy
+        - **Optional Feature**: Can be toggled on/off
+        """)
+    
+    with col3:
+        st.markdown("### 3. AI Analysis")
         st.markdown("""
         - **Smart Transcription**: Convert audio to text
         - **Content Cleaning**: Remove filler words, errors
@@ -632,8 +722,8 @@ if not st.session_state.get('run_pipeline', False):
         - **Structure Detection**: Organize content logically
         """)
     
-    with col3:
-        st.markdown("### 3. Presentation Ready")
+    with col4:
+        st.markdown("### 4. Presentation Ready")
         st.markdown("""
         - **Professional Slides**: Academic templates
         - **Editable Format**: PowerPoint (.pptx) files
@@ -646,7 +736,7 @@ st.markdown("---")
 st.markdown(
     "<div style='text-align: center; color: #64748b; padding: 2rem;'>"
     "🎓 **SlideCraft** - Transforming Lecture Notes into Professional Presentations • "
-    "Perfect for Educators, Students, and Researchers"
+    "Enhanced with Knowledge Base AI • Perfect for Educators, Students, and Researchers"
     "</div>",
     unsafe_allow_html=True
 )
