@@ -43,7 +43,7 @@ def transcribe_and_clean(input_path: str) -> Tuple[str, Path]:
         resp = gen_text(rough, system_instruction=SYS_PROMPT, temperature=0.1)
         cleaned = resp.text.strip()
     else:
-        # audio/video branch – upload and ask Gemini to transcribe + clean
+        # audio branch – upload and ask Gemini to transcribe + clean
         file_part = upload_file(str(path))
         prompt = (
             "Transcribe this audio/video. Use readable punctuation, minimal fillers.\n"
