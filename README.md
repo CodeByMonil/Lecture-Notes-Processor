@@ -26,6 +26,10 @@ Built with **Google Gemini 2.5 Flash** and **Streamlit**, it’s designed to hel
 
 ---
 
+📌 **System Architecture Diagram:**  
+![Agentic Flow](docs/sys_archi.png)  
+
+
 ## 🔹 Agentic Flow
 The system follows an **agentic architecture**:
 
@@ -34,7 +38,7 @@ The system follows an **agentic architecture**:
 - **Key Points Extractor** → builds outline (structured JSON)  
 - **Slide Generator** → produces PowerPoint slides  
 
-📌 **System Diagram:**  
+📌 **Agentic Flow Diagram:**  
 ![Agentic Flow](docs/agents_flow.png)  
 
 ---
@@ -104,11 +108,22 @@ This system can be offered as an **AI assistant for educators and students**:
   - Produces professional-quality, consistent slides  
   - Enhances focus on **teaching and learning**  
 
-- **Pricing Model:**  
-  - **Freemium:** basic transcript-to-outline  
-  - **Premium subscription:** unlimited uploads, advanced slide templates  
-  - **Institutional license:** campus-wide access for staff and students  
 
+- **Pricing Model:**  
+
+    ### Free Version
+    - **Max Upload:** 200MB per file  
+    - **Features:**
+    - Basic transcript-to-outline processing
+    - ❌ Knowledge Base (KB) Enhancement not available
+
+    ### Premium Version
+    - **Max Upload:** 1GB per file  
+    - **Features:**
+    - ✅ Access to Knowledge Base (KB) Enhancement
+    - Advanced slide templates & professional formatting
+    - Unlimited uploads
+    
 ---
 
 ## 🔹 Tech Stack
