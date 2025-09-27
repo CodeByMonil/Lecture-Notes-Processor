@@ -19,7 +19,7 @@ Built with **Google Gemini 2.5 Flash** and **Streamlit**, it’s designed to hel
 ---
 
 ## 🔹 What it Does
-1. **Transcript Cleaner Agent** – accepts audio/video or raw text and produces a clean transcript (removes filler words, fixes punctuation).  
+1. **Transcript Cleaner Agent** – accepts audio or text and produces a clean transcript (removes filler words, fixes punctuation).  
 2. **Retriever Agent (KB)** – fetches relevant snippets from a pre-built **knowledge base** to improve accuracy (RAG).  
 3. **Key Points Extractor Agent** – extracts a **hierarchical outline** (topics → sections → bullets) with optional timestamps, using structured JSON output.  
 4. **Slide Generator Agent** – converts the outline into a polished **PowerPoint (`.pptx`)**.  
