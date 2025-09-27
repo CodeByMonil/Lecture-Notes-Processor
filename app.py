@@ -434,11 +434,11 @@ st.markdown(
     """
     <div class="pipeline-steps">
         <div class="step">
-            <div class="step-icon">🎤</div>
-            <div>1. Upload Lecture</div>
+            <div class="step-icon">📚</div>
+            <div>1. Upload Materials</div>
         </div>
         <div class="step">
-            <div class="step-icon">🔍</div>
+            <div class="step-icon">🧠</div>
             <div>2. AI Processing</div>
         </div>
         <div class="step">
@@ -452,17 +452,27 @@ st.markdown(
 
 # Sidebar - File Management
 with st.sidebar:
-    st.markdown("### 📁 Lecture Materials")
+    st.markdown("### 🗂️ File Management")
+    
+    st.markdown(
+        """
+        **Important:** All uploaded content will be automatically deleted after 24 hours, ensuring your privacy. 
+        Your materials will not be used for any data collection purposes.
+        """,
+        unsafe_allow_html=True
+)
+
     
     # File Upload
-    st.subheader("Upload New Material")
+    st.subheader("📚 Upload New Material")
     up = st.file_uploader(
         "Select lecture file",
         type=["mp3", "wav", "m4a", "mp4", "mov", "pdf", "txt", "md"],
         label_visibility="collapsed",
         help="Supported: Audio recordings, PDF notes, text files"
     )
-    
+    st.markdown("**File size limit**: 200MB per file. **Supported file types**: MP3, WAV, M4A, MP4, MOV, PDF, TXT, MD")
+
     uploaded_path = None
     if up:
         safe_name = f"{st.session_state.username}_{up.name.replace(' ', '_')}"
@@ -475,13 +485,14 @@ with st.sidebar:
     st.markdown("---")
     
     # Existing Files
-    st.subheader("Your Lecture Files")
+    st.subheader("🗃️ Existing Materials")
     choices = [p.name for p in DATA_IN.glob(f"{st.session_state.username}_*") if p.is_file()]
     if choices:
         choice = st.selectbox("Select existing file", ["—"] + choices, label_visibility="collapsed")
     else:
         st.info("📝 No files uploaded yet")
         choice = "—"
+    
     
     st.markdown("---")
     
@@ -499,6 +510,30 @@ with st.sidebar:
     if st.button("🚀 Process Lecture Notes", type="primary", use_container_width=True):
         st.session_state.run_pipeline = True
         st.session_state.use_kb = use_kb
+
+    st.markdown("---")
+
+    # Old Generated Slides Section
+    st.subheader("📜 Old Generated Slides")
+
+    slides_dir = Path("outputs/slides")
+    old_slides = [p.name for p in slides_dir.glob(f"{st.session_state.username}_*.pptx") if p.is_file()]
+
+    if old_slides:
+        selected_slide = st.selectbox("Select slide file", ["—"] + old_slides, label_visibility="collapsed")
+        if selected_slide != "—":
+            slide_path = slides_dir / selected_slide
+            with open(slide_path, "rb") as f:
+                st.download_button(
+                    "⬇️ Download Selected Slide",
+                    data=f.read(),
+                    file_name=selected_slide,
+                    use_container_width=True,
+                    type="primary"
+                )
+    else:
+        st.info("📂 No previously generated slides found")
+    
 
 # --------------------------
 # PROCESSING PIPELINE

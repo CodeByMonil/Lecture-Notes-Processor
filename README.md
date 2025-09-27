@@ -26,6 +26,10 @@ Built with **Google Gemini 2.5 Flash** and **Streamlit**, it’s designed to hel
 
 ---
 
+📌 **System Architecture Diagram:**  
+![Agentic Flow](docs/sys_archi.png)  
+
+
 ## 🔹 Agentic Flow
 The system follows an **agentic architecture**:
 
@@ -34,7 +38,7 @@ The system follows an **agentic architecture**:
 - **Key Points Extractor** → builds outline (structured JSON)  
 - **Slide Generator** → produces PowerPoint slides  
 
-📌 **System Diagram:**  
+📌 **Agentic Flow Diagram:**  
 ![Agentic Flow](docs/agents_flow.png)  
 
 ---
