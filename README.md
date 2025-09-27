@@ -108,11 +108,22 @@ This system can be offered as an **AI assistant for educators and students**:
   - Produces professional-quality, consistent slides  
   - Enhances focus on **teaching and learning**  
 
-- **Pricing Model:**  
-  - **Freemium:** basic transcript-to-outline  
-  - **Premium subscription:** unlimited uploads, advanced slide templates  
-  - **Institutional license:** campus-wide access for staff and students  
 
+- **Pricing Model:**  
+
+    ### Free Version
+    - **Max Upload:** 200MB per file  
+    - **Features:**
+    - Basic transcript-to-outline processing
+    - ❌ Knowledge Base (KB) Enhancement not available
+
+    ### Premium Version
+    - **Max Upload:** 1GB per file  
+    - **Features:**
+    - ✅ Access to Knowledge Base (KB) Enhancement
+    - Advanced slide templates & professional formatting
+    - Unlimited uploads
+    
 ---
 
 ## 🔹 Tech Stack
