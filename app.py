@@ -471,7 +471,7 @@ with st.sidebar:
         label_visibility="collapsed",
         help="Supported: Audio recordings, PDF notes, text files"
     )
-    st.markdown("**File size limit**: 200MB per file. **Supported file types**: MP3, WAV, M4A, MP4, MOV, PDF, TXT, MD")
+    st.markdown("**File size limit**: 200MB per file. **Supported file types**: MP3, WAV, PDF, TXT")
 
     uploaded_path = None
     if up:
