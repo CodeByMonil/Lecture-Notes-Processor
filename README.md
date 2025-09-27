@@ -1,4 +1,4 @@
-# Lecture Notes Processor – SlideCraft
+# Lecture Notes Processor – SlideCraft 🎓
 
 > **IRWA Group Project – Y3S1 (July - December, 2025)**
 
