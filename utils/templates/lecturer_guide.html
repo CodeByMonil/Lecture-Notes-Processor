@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{{ title }} – Lecture Instructor Guide</title>
+    <style>
+        body {
+            font-family: "Helvetica", sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+            color: #222;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 25px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+        }
+        p {
+            text-align: justify;
+        }
+        .tips {
+            background: #f4f6f8;
+            border-left: 4px solid #2c3e50;
+            padding: 10px 20px;
+            margin-top: 20px;
+        }
+        footer {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ title }} – Lecture Instructor Guide</h1>
+    <div class="content">
+        {{ guide_text | safe }}
+    </div>
+    <footer>
+        Generated automatically using Lecture Notes Processor – IRWA Project
+    </footer>
+</body>
+</html>

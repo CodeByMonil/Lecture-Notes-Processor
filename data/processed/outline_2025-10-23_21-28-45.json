@@ -1,0 +1,188 @@
+{
+  "title": "Cloud Computing: An Overview",
+  "topics": [
+    "Cloud Computing Definition",
+    "Cloud Characteristics",
+    "Service Models (IaaS, PaaS, SaaS)",
+    "Deployment Models (Public, Private, Hybrid, Community)",
+    "Cloud Advantages",
+    "Cloud Challenges",
+    "Cloud Applications",
+    "AI and Big Data in Cloud",
+    "Edge Computing",
+    "Future Cloud Trends"
+  ],
+  "sections": [
+    {
+      "heading": "Introduction to Cloud Computing",
+      "bullets": [
+        {
+          "text": "Lecture will cover meaning, features, models, advantages, challenges, and applications of cloud computing.",
+          "timestamp": "00:00"
+        },
+        {
+          "text": "Defined as the delivery of computing services (servers, storage, databases, software, AI) over the internet.",
+          "timestamp": "00:58"
+        },
+        {
+          "text": "It is a way of renting computing resources instead of buying and maintaining them locally.",
+          "timestamp": "01:40"
+        },
+        {
+          "text": "Analogy: paying for electricity without owning the power plant, only for consumption.",
+          "timestamp": "01:55"
+        },
+        {
+          "text": "This model makes technology more affordable, scalable, and convenient.",
+          "timestamp": "02:30"
+        }
+      ]
+    },
+    {
+      "heading": "Key Characteristics of Cloud Computing",
+      "bullets": [
+        {
+          "text": "On-demand self-service: users access resources as needed without human interaction.",
+          "timestamp": "02:45"
+        },
+        {
+          "text": "Broad network access: services are available over the internet from various devices.",
+          "timestamp": "03:10"
+        },
+        {
+          "text": "Resource pooling: providers share resources across multiple customers while keeping data isolated.",
+          "timestamp": "03:30"
+        },
+        {
+          "text": "Rapid elasticity: resources can scale up or down quickly based on demand.",
+          "timestamp": "03:50"
+        },
+        {
+          "text": "Measured service: usage is monitored and billed according to resources consumed.",
+          "timestamp": "04:05"
+        }
+      ]
+    },
+    {
+      "heading": "Cloud Service Models",
+      "bullets": [
+        {
+          "text": "Infrastructure as a Service (IaaS): delivers fundamental computing resources like virtual machines, storage, and networking (e.g., Amazon Web Services EC2).",
+          "timestamp": "04:20"
+        },
+        {
+          "text": "Platform as a Service (PaaS): provides infrastructure plus a development platform with built-in tools and frameworks (e.g., Google App Engine).",
+          "timestamp": "05:05"
+        },
+        {
+          "text": "Software as a Service (SaaS): delivers ready-to-use applications over the internet, accessed via a browser (e.g., Gmail, Microsoft 365, Zoom).",
+          "timestamp": "05:35"
+        }
+      ]
+    },
+    {
+      "heading": "Cloud Deployment Models",
+      "bullets": [
+        {
+          "text": "Public Cloud: services delivered over the internet, shared by multiple organizations, cost-effective but may raise security concerns.",
+          "timestamp": "06:00"
+        },
+        {
+          "text": "Private Cloud: dedicated to a single organization, offering more control and security but potentially more expensive.",
+          "timestamp": "06:30"
+        },
+        {
+          "text": "Hybrid Cloud: combines public and private clouds to balance flexibility with security.",
+          "timestamp": "06:50"
+        },
+        {
+          "text": "Community Cloud: shared by several organizations with common goals or requirements (e.g., healthcare, education).",
+          "timestamp": "07:05"
+        }
+      ]
+    },
+    {
+      "heading": "Advantages and Challenges of Cloud Computing",
+      "bullets": [
+        {
+          "text": "Advantages include reduced costs, improved scalability, enhanced flexibility, increased reliability, and support for innovation.",
+          "timestamp": "07:20"
+        },
+        {
+          "text": "Challenges involve security and privacy concerns due to data stored on remote servers.",
+          "timestamp": "08:40"
+        },
+        {
+          "text": "Downtime: internet connectivity issues can affect access to critical resources.",
+          "timestamp": "09:10"
+        },
+        {
+          "text": "Compliance: strict regulations in certain industries regarding data storage.",
+          "timestamp": "09:30"
+        },
+        {
+          "text": "Vendor lock-in: difficulty and cost associated with switching cloud providers.",
+          "timestamp": "09:50"
+        },
+        {
+          "text": "Performance concerns for applications requiring very high processing speed or low latency.",
+          "timestamp": "10:00"
+        }
+      ]
+    },
+    {
+      "heading": "Real-World Applications of Cloud Computing",
+      "bullets": [
+        {
+          "text": "Data storage and backup (e.g., Google Drive, Dropbox, OneDrive).",
+          "timestamp": "10:10"
+        },
+        {
+          "text": "Business collaboration tools (e.g., Slack, Microsoft Teams).",
+          "timestamp": "10:40"
+        },
+        {
+          "text": "Entertainment streaming platforms (e.g., Netflix, Spotify).",
+          "timestamp": "11:00"
+        },
+        {
+          "text": "Healthcare solutions (e.g., electronic medical records, telemedicine).",
+          "timestamp": "11:20"
+        },
+        {
+          "text": "Education platforms (e.g., Coursera, Google Classroom).",
+          "timestamp": "11:30"
+        },
+        {
+          "text": "Research for large-scale data analysis, machine learning, and AI projects.",
+          "timestamp": "11:40"
+        }
+      ]
+    },
+    {
+      "heading": "Emerging Concepts and Future Trends",
+      "bullets": [
+        {
+          "text": "Cloud computing is crucial for AI and big data analytics, providing high-performance computing resources on demand.",
+          "timestamp": "11:50"
+        },
+        {
+          "text": "Edge computing processes data closer to the source, reducing latency, but still relies on the cloud for management.",
+          "timestamp": "12:55"
+        },
+        {
+          "text": "Future trends include multi-cloud strategies to avoid vendor lock-in and improve reliability.",
+          "timestamp": "13:55"
+        },
+        {
+          "text": "Serverless computing allows developers to focus on code, with the provider managing infrastructure automatically.",
+          "timestamp": "14:20"
+        },
+        {
+          "text": "Continued focus on security, compliance, and integration with AI, blockchain, and 5G technologies.",
+          "timestamp": "14:40"
+        }
+      ]
+    }
+  ]
+}

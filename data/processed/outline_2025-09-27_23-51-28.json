@@ -1,0 +1,131 @@
+{
+  "title": "Understanding Deep Learning",
+  "topics": [
+    "Deep Learning",
+    "Machine Learning",
+    "Artificial Intelligence",
+    "Neural Networks",
+    "Applications",
+    "Limitations",
+    "Frameworks"
+  ],
+  "sections": [
+    {
+      "heading": "Introduction to Deep Learning",
+      "bullets": [
+        {
+          "text": "Deep learning powers features like language translation and image grouping.",
+          "timestamp": "00:00"
+        },
+        {
+          "text": "It is a subset of machine learning, which is a subset of artificial intelligence.",
+          "timestamp": "00:15"
+        },
+        {
+          "text": "AI mimics human behavior; ML achieves AI through data-trained algorithms.",
+          "timestamp": "00:21"
+        },
+        {
+          "text": "Deep learning is inspired by the human brain's structure, called an artificial neural network.",
+          "timestamp": "00:32"
+        },
+        {
+          "text": "Deep learning automatically picks features, unlike machine learning which requires human input.",
+          "timestamp": "00:52"
+        },
+        {
+          "text": "This independence comes at the cost of needing a much higher volume of training data.",
+          "timestamp": "01:08"
+        }
+      ]
+    },
+    {
+      "heading": "Working of Neural Networks",
+      "bullets": [
+        {
+          "text": "Neural networks identify handwritten digits, represented as 28x28 pixel images (784 pixels).",
+          "timestamp": "01:37"
+        },
+        {
+          "text": "Neurons are the core information processing entities in a neural network.",
+          "timestamp": "01:50"
+        },
+        {
+          "text": "The network consists of an input layer, hidden layers, and an output layer.",
+          "timestamp": "01:56"
+        },
+        {
+          "text": "Information transfers via weighted channels; each neuron has a unique bias.",
+          "timestamp": "02:12"
+        },
+        {
+          "text": "Bias is added to the weighted sum of inputs, then fed to an activation function.",
+          "timestamp": "02:27"
+        },
+        {
+          "text": "Activated neurons pass information to subsequent layers, leading to the identification of the input digit.",
+          "timestamp": "02:37"
+        },
+        {
+          "text": "Weights and bias are continuously adjusted to train the network effectively.",
+          "timestamp": "02:55"
+        }
+      ]
+    },
+    {
+      "heading": "Applications of Deep Learning",
+      "bullets": [
+        {
+          "text": "Customer Support: Realistic conversational bots.",
+          "timestamp": "03:03"
+        },
+        {
+          "text": "Medical Care: Detecting cancer cells and analyzing MRI images.",
+          "timestamp": "03:14"
+        },
+        {
+          "text": "Self-driving Cars: Companies like Apple, Tesla, and Nissan are developing this technology.",
+          "timestamp": "03:21"
+        }
+      ]
+    },
+    {
+      "heading": "Limitations of Deep Learning",
+      "bullets": [
+        {
+          "text": "Data Volume: Requires a massive amount of data for training neural networks.",
+          "timestamp": "03:38"
+        },
+        {
+          "text": "Computational Power: Needs expensive Graphical Processing Units (GPUs) with thousands of cores.",
+          "timestamp": "03:53"
+        },
+        {
+          "text": "Training Time: Deep neural networks can take hours or even months to train, depending on data and layers.",
+          "timestamp": "04:14"
+        }
+      ]
+    },
+    {
+      "heading": "Deep Learning Frameworks and Future Outlook",
+      "bullets": [
+        {
+          "text": "Popular deep learning frameworks include TensorFlow, PyTorch, Keras, and Caffe.",
+          "timestamp": "04:53"
+        },
+        {
+          "text": "Deep learning and AI are still in early stages with vast future potential.",
+          "timestamp": "05:02"
+        },
+        {
+          "text": "Example: Horex Technology uses deep learning for a device describing the world to the blind.",
+          "timestamp": "05:09"
+        },
+        {
+          "text": "Replicating the human mind may soon move beyond science fiction.",
+          "timestamp": "05:17"
+        }
+      ]
+    }
+  ]
+}

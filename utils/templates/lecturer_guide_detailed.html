@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>{{ metadata.title }} — Lecturer Guide</title>
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif; margin: 28px; color:#1f2937; }
+    h1 { font-size: 20pt; margin-bottom: 4px; }
+    h2 { font-size: 13pt; margin-top: 18px; }
+    h3 { font-size: 11pt; margin-bottom: 6px; }
+    p.meta { font-size: 9pt; color:#475569; margin-bottom: 8px; }
+    ul { margin:6px 0 10px 18px; }
+    ol { margin-left: 18px; }
+    .slide { margin-bottom: 10px; padding-bottom: 6px; border-bottom:1px solid #e6eef8; }
+    .footer { font-size: 8pt; color: #64748b; margin-top: 12px; }
+  </style>
+</head>
+<body>
+  <h1>{{ metadata.title }}</h1>
+  <p class="meta">Audience: {{ metadata.audience }} • Duration: {{ metadata.duration }} min • Date: {{ metadata.date }}</p>
+
+  <h2>Quick Checklist</h2>
+  <div>
+    <h3>Preparation</h3>
+    <ul>
+      {% for item in checklist.prep %}
+      <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
+    <h3>Tech Check</h3>
+    <ul>
+      {% for item in checklist.tech %}
+      <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
+    <h3>Accessibility</h3>
+    <ul>
+      {% for item in checklist.accessibility %}
+      <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <h2>10-step Delivery Script (short)</h2>
+  <ol>
+    {% for s in script.steps %}
+      <li><strong>{{ s.title }}:</strong> {{ s.text }}</li>
+    {% endfor %}
+  </ol>
+
+  <h2>Slide-by-slide speaker cues</h2>
+  {% for s in slides %}
+    <div class="slide">
+      <strong>Slide {{ s.slide }} — {{ s.title }}</strong>
+      <p>{{ s.notes }}</p>
+    </div>
+  {% endfor %}
+
+  {% if extra_notes %}
+  <h2>Extra lecturer notes (private)</h2>
+  <p>{{ extra_notes }}</p>
+  {% endif %}
+
+  <h2>Detailed Timing & Running Order</h2>
+  <p>Suggested minute-by-minute breakdown for this session.</p>
+  <ul>
+    <li>0-2 min: Opening & objectives</li>
+    <li>2-12 min: Core topic 1 (explain + example)</li>
+    <li>12-15 min: Active recall/poll</li>
+    <li>15-25 min: Core topic 2...</li>
+    <li>25-30 min: Summary & next steps</li>
+  </ul>
+
+
+  <div class="footer">
+    Generated at: {{ generated_at }} • id: {{ uuid }}
+  </div>
+</body>
+</html>

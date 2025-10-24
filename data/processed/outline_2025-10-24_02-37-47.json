@@ -1,0 +1,104 @@
+{
+  "title": "Machine Learning Basics",
+  "topics": [
+    "Machine Learning",
+    "Supervised Learning",
+    "Unsupervised Learning",
+    "Reinforcement Learning",
+    "Overfitting",
+    "Bias",
+    "Applications of ML"
+  ],
+  "sections": [
+    {
+      "heading": "Introduction to Machine Learning",
+      "bullets": [
+        {
+          "text": "Machine Learning teaches computers to learn from data.",
+          "timestamp": "00:00"
+        },
+        {
+          "text": "It replaces explicit rules with data-driven learning.",
+          "timestamp": "00:00"
+        }
+      ]
+    },
+    {
+      "heading": "Supervised Learning",
+      "bullets": [
+        {
+          "text": "System trained on labeled data (e.g., spam/not spam emails).",
+          "timestamp": "00:00"
+        },
+        {
+          "text": "Model learns patterns to predict unseen cases.",
+          "timestamp": "00:00"
+        },
+        {
+          "text": "Common algorithms: decision trees, support vector machines, neural networks.",
+          "timestamp": "00:00"
+        }
+      ]
+    },
+    {
+      "heading": "Unsupervised Learning",
+      "bullets": [
+        {
+          "text": "System finds patterns without labels.",
+          "timestamp": "01:00"
+        },
+        {
+          "text": "Example: clustering customers by purchasing behavior.",
+          "timestamp": "01:00"
+        },
+        {
+          "text": "K-means is a classic algorithm.",
+          "timestamp": "01:00"
+        }
+      ]
+    },
+    {
+      "heading": "Reinforcement Learning",
+      "bullets": [
+        {
+          "text": "Agent interacts with an environment and learns from feedback/rewards.",
+          "timestamp": "01:00"
+        },
+        {
+          "text": "Examples: training AI to play video games or control robots.",
+          "timestamp": "01:00"
+        }
+      ]
+    },
+    {
+      "heading": "Challenges in Machine Learning",
+      "bullets": [
+        {
+          "text": "Overfitting: model memorizes training data, performs poorly on new data.",
+          "timestamp": "01:00"
+        },
+        {
+          "text": "Bias: occurs when the training data itself is unbalanced.",
+          "timestamp": "01:00"
+        }
+      ]
+    },
+    {
+      "heading": "Applications of Machine Learning",
+      "bullets": [
+        {
+          "text": "Healthcare: disease prediction.",
+          "timestamp": "01:00"
+        },
+        {
+          "text": "Finance: fraud detection.",
+          "timestamp": "01:00"
+        },
+        {
+          "text": "Self-driving cars: object recognition.",
+          "timestamp": "01:00"
+        }
+      ]
+    }
+  ]
+}

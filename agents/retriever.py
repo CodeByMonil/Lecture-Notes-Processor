@@ -202,3 +202,27 @@ def test_retrieval():
 
 if __name__ == "__main__":
     test_retrieval()
+
+
+
+def detect_conflict(retrieve_docs, threshold=0.15):
+    """Detect conflicting results based on score variance or diverse sources."""
+    if not retrieve_docs or len(retrieve_docs) < 2:
+        return False
+    scores = [doc['score'] for doc in retrieve_docs if 'score' in doc]
+    if not scores:
+        return False
+    variance = max(scores) - min(scores)
+    return variance > threshold
+
+def retrieve_docs(query, top_k=5):
+    retrieved_docs = kb.similarity_search(query, top_k=top_k)
+    
+    # Add source + score metadata if not already
+    for doc in retrieved_docs:
+        doc.metadata['score'] = float(doc.metadata.get('similarity', 0.5))
+    
+    conflict_flag = detect_conflict([{"score": d.metadata["score"]} for d in retrieved_docs])
+    return retrieved_docs, conflict_flag
+
+    
