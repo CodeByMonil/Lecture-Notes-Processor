@@ -5,6 +5,7 @@ import os
 import re
 import time
 import random
+from datetime import datetime
 from dotenv import load_dotenv
 
 # Load environment variables
@@ -30,7 +31,7 @@ def run_guide_agent(lecture_metadata: Dict[str, Any], extracted_outline, style="
     # Get model from environment or use default
     model_name = os.getenv("GEMINI_MODEL", "gemini-2.0-flash")
 
-    # Extract keypoints from outline
+    # Extract keypoints from outline - REMOVED TRUNCATION
     keypoints = extract_keypoints_from_outline(extracted_outline)
     slides_text = "\n".join([f"- {k}" for i, k in enumerate(keypoints)])
 
@@ -106,44 +107,46 @@ def run_guide_agent(lecture_metadata: Dict[str, Any], extracted_outline, style="
                 break
 
     # Generate concise PDF
-    output_path = generate_concise_pdf_guide(lecture_title, guide_text)
+    output_path = generate_modern_pdf_guide(lecture_title, guide_text)
     return output_path
 
 def extract_keypoints_from_outline(outline):
-    """Extract keypoints from various outline formats"""
+    """Extract keypoints from various outline formats - REMOVED TRUNCATION"""
     keypoints = []
     
     if hasattr(outline, 'slides'):
-        # Outline object with slides attribute
+        # Outline object with slides attribute - NO TRUNCATION
         for slide in outline.slides:
-            if hasattr(slide, 'title'):
+            if hasattr(slide, 'title') and slide.title:
                 keypoints.append(slide.title)
-            elif hasattr(slide, 'content'):
-                keypoints.append(slide.content[:100] + "..." if len(slide.content) > 100 else slide.content)
-            else:
-                keypoints.append(str(slide))
+            if hasattr(slide, 'content') and slide.content:
+                # Use full content without truncation
+                keypoints.append(slide.content)
     elif isinstance(outline, list):
-        # List of slides
+        # List of slides - NO TRUNCATION
         for slide in outline:
             if isinstance(slide, dict):
-                if 'title' in slide:
+                if 'title' in slide and slide['title']:
                     keypoints.append(slide['title'])
-                elif 'content' in slide:
-                    keypoints.append(slide['content'][:100] + "..." if len(slide['content']) > 100 else slide['content'])
-            else:
-                keypoints.append(str(slide))
+                if 'content' in slide and slide['content']:
+                    # Use full content without truncation
+                    keypoints.append(slide['content'])
+            elif isinstance(slide, str):
+                keypoints.append(slide)
     elif hasattr(outline, '__dict__'):
         # Object with attributes
-        for attr in ['title', 'content', 'keypoints']:
+        for attr in ['title', 'content', 'keypoints', 'headline', 'topic']:
             if hasattr(outline, attr):
                 value = getattr(outline, attr)
                 if value:
                     keypoints.append(str(value))
     else:
-        # Fallback: convert to string and split
+        # Fallback: convert to string - LIMITED TRUNCATION
         outline_str = str(outline)
-        if len(outline_str) > 200:
-            keypoints = [outline_str[i:i+100] for i in range(0, min(len(outline_str), 500), 100)]
+        if len(outline_str) > 300:
+            # Split into sentences instead of arbitrary chunks
+            sentences = re.split(r'[.!?]+', outline_str)
+            keypoints = [s.strip() for s in sentences if len(s.strip()) > 20][:6]
         else:
             keypoints = [outline_str]
     
@@ -151,10 +154,13 @@ def extract_keypoints_from_outline(outline):
     if not keypoints:
         keypoints = ["Key concepts from the lecture material"]
     
-    return keypoints[:10]  # Limit to 10 keypoints
+    return keypoints[:8]  # Limit to 8 keypoints for better quality
 
 def generate_fallback_guide(lecture_title: str, keypoints: List[str]):
     """Generate a fallback guide when API fails"""
+    # Use actual keypoints in fallback
+    keypoints_text = "\n".join([f"- {kp}" for kp in keypoints[:4]])
+    
     fallback_content = f"""
 LECTURE OVERVIEW
 Main Objectives
@@ -169,9 +175,7 @@ Key Learning Outcomes
 
 TEACHING NOTES
 Core Concepts
-- Fundamental principles underlying {lecture_title}
-- Key relationships and patterns
-- Practical applications and implications
+{keypoints_text}
 
 Key Teaching Points
 - Focus on conceptual understanding
@@ -224,9 +228,9 @@ Exam Topics
 """
     return fallback_content
 
-def generate_concise_pdf_guide(lecture_title: str, guide_text: str):
+def generate_modern_pdf_guide(lecture_title: str, guide_text: str):
     """
-    Generates a concise PDF guide (4-5 pages max) without any markdown symbols.
+    Generates a modern PDF guide with improved formatting and no truncated content.
     """
     try:
         from fpdf import FPDF
@@ -237,40 +241,34 @@ def generate_concise_pdf_guide(lecture_title: str, guide_text: str):
     output_dir = Path("outputs/guides")
     output_dir.mkdir(parents=True, exist_ok=True)
     
-    # Create PDF with smaller fonts for conciseness
+    # Create PDF with modern design
     pdf = FPDF()
-    pdf.set_auto_page_break(auto=True, margin=12)
+    pdf.set_auto_page_break(auto=True, margin=15)
     pdf.add_page()
     
-    # Color scheme
+    # Modern color scheme - Dark blue gradient
     primary_color = (25, 55, 109)      # Midnight blue
     secondary_color = (49, 130, 206)   # Steel blue
     accent_color = (12, 35, 64)        # Almost black blue
     text_color = (44, 54, 69)          # Charcoal blue
+    highlight_color = (46, 204, 113)   # Green for bullet points
     
-    # Title section - more compact
+    # Title section - modern design
     pdf.set_fill_color(*primary_color)
     pdf.set_text_color(255, 255, 255)
-    pdf.set_font("Arial", "B", 16)
-    pdf.cell(0, 10, "INSTRUCTOR GUIDE", 0, 1, "C", True)
+    pdf.set_font("Arial", "B", 18)
+    pdf.cell(0, 12, "INSTRUCTOR GUIDE", 0, 1, "C", True)
     
     pdf.set_font("Arial", "B", 14)
-    pdf.cell(0, 8, lecture_title, 0, 1, "C", True)
-    pdf.ln(8)
+    pdf.cell(0, 10, lecture_title, 0, 1, "C", True)
+    pdf.ln(10)
     
-    # Clean the guide text aggressively
+    # Clean the guide text - NO CONTENT TRUNCATION
     clean_text = aggressive_clean_markdown(guide_text)
     
-    # Process content with compact formatting
+    # Process content with modern formatting
     pdf.set_text_color(*text_color)
-    process_compact_content(pdf, clean_text, secondary_color, accent_color, text_color)
-    
-    # Compact footer
-    # pdf.set_y(-15)
-    # pdf.set_fill_color(*accent_color)
-    # pdf.set_text_color(255, 255, 255)
-    # pdf.set_font("Arial", "I", 7)
-    # pdf.cell(0, 6, "SlideCraft - AI Lecture Processor", 0, 0, "C", True)
+    process_modern_content(pdf, clean_text, secondary_color, accent_color, highlight_color, text_color)
     
     # Save PDF
     safe_title = "".join(c for c in lecture_title if c.isalnum() or c in (' ', '-', '_')).rstrip()
@@ -282,7 +280,7 @@ def generate_concise_pdf_guide(lecture_title: str, guide_text: str):
 
 def aggressive_clean_markdown(text: str) -> str:
     """
-    Aggressively removes all markdown symbols and trims content.
+    Aggressively removes all markdown symbols without truncating content.
     """
     if not text:
         return "No content available for this guide."
@@ -301,69 +299,73 @@ def aggressive_clean_markdown(text: str) -> str:
     # Convert various bullet styles to simple dashes
     text = re.sub(r'^\s*[•*+-]\s+', '- ', text, flags=re.MULTILINE)
     
-    # Remove extra blank lines to save space
+    # Remove extra blank lines but preserve structure
     text = re.sub(r'\n\s*\n\s*\n', '\n\n', text)
+    
+    # Clean up multiple spaces but don't truncate content
+    text = re.sub(r'[ \t]+', ' ', text)
     
     return text.strip()
 
-def process_compact_content(pdf, text: str, section_color: tuple, accent_color: tuple, text_color: tuple):
+def process_modern_content(pdf, text: str, section_color: tuple, accent_color: tuple, highlight_color: tuple, text_color: tuple):
     """
-    Process content with compact formatting to fit in 4-5 pages.
+    Process content with modern formatting and NO TRUNCATION of sentences.
     """
     lines = text.split('\n')
     
     for line in lines:
         line = line.strip()
         if not line:
-            pdf.ln(3)  # Smaller spacing
+            pdf.ln(4)  # Reasonable spacing
             continue
         
-        # Check for major sections (uppercase and relatively short)
+        # Check for major sections
         line_upper = line.upper()
         is_major_section = any(keyword in line_upper for keyword in [
-            'LECTURE OVERVIEW', 'TEACHING NOTES', 'TEACHING STRATEGIES', 'ASSESSMENT',
-            'OVERVIEW', 'NOTES', 'STRATEGIES'
+            'LECTURE OVERVIEW', 'TEACHING NOTES', 'TEACHING STRATEGIES', 'ASSESSMENT'
         ]) and len(line) < 50
         
         if is_major_section:
-            pdf.ln(5)
+            pdf.ln(8)
             pdf.set_fill_color(*section_color)
             pdf.set_text_color(255, 255, 255)
-            pdf.set_font("Arial", "B", 12)  # Smaller font for headers
-            pdf.cell(0, 8, line.upper(), 0, 1, "L", True)
+            pdf.set_font("Arial", "B", 14)
+            pdf.cell(0, 10, line.upper(), 0, 1, "L", True)
             pdf.set_text_color(*text_color)
-            pdf.ln(2)
+            pdf.ln(4)
             
         # Check for sub-sections
         elif (line_upper == line and len(line) < 100 and 
               any(keyword in line_upper for keyword in [
                   'OBJECTIVES', 'OUTCOMES', 'KEY POINTS', 'EXAMPLES', 
                   'QUESTIONS', 'TIMING', 'ACTIVITIES', 'TIPS', 'MAIN',
-                  'CORE', 'REAL-WORLD', 'DISCUSSION', 'QUICK', 'EXAM'
+                  'CORE', 'REAL-WORLD', 'DISCUSSION', 'QUICK', 'EXAM',
+                  'CONCEPTS', 'PROMPTS', 'TOPICS'
               ])):
-            pdf.ln(3)
+            pdf.ln(5)
             pdf.set_text_color(*accent_color)
-            pdf.set_font("Arial", "B", 10)
-            pdf.cell(0, 6, line, 0, 1)
+            pdf.set_font("Arial", "B", 11)
+            pdf.cell(0, 7, line, 0, 1)
             pdf.set_text_color(*text_color)
-            pdf.ln(1)
+            pdf.ln(2)
             
         else:
-            # Regular content - use smaller font and tighter spacing
-            pdf.set_font("Arial", size=10)  # Smaller font for content
+            # Regular content - NO TRUNCATION, better formatting
+            pdf.set_font("Arial", size=11)  # Readable font size
             
             if line.startswith('-'):
-                # Bullet points - compact
-                pdf.cell(8)
+                # Bullet points with better styling - NO TRUNCATION
+                pdf.set_x(15)
+                pdf.set_text_color(*highlight_color)
+                pdf.cell(5, 5, "•")
+                pdf.set_text_color(*text_color)
+                
                 content = line[1:].strip()
-                # Truncate very long lines
-                if len(content) > 120:
-                    content = content[:117] + '...'
-                pdf.multi_cell(0, 5, content)
+                # NO TRUNCATION - let content wrap naturally
+                pdf.multi_cell(0, 6, content)
             else:
-                # Regular text - more compact
-                if len(line) > 120:
-                    line = line[:117] + '...'
-                pdf.multi_cell(0, 5, line)
+                # Regular text - NO TRUNCATION
+                pdf.set_x(10)
+                pdf.multi_cell(0, 6, line)
             
-            pdf.ln(1)  # Minimal spacing between lines
+            pdf.ln(2)  # Reasonable spacing between lines
