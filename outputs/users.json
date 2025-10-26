@@ -10,5 +10,9 @@
   "user44": {
     "plan": "SlideCraft Pro",
     "created_at": 1761287087
+  },
+  "user1": {
+    "plan": "SlideCraft Pro",
+    "created_at": 1761453872
   }
 }

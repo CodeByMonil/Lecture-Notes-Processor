@@ -23,6 +23,7 @@ Built with **Google Gemini 2.5 Flash** and **Streamlit**, it’s designed to hel
 2. **Retriever Agent (KB)** – fetches relevant snippets from a pre-built **knowledge base** to improve accuracy (RAG).  
 3. **Key Points Extractor Agent** – extracts a **hierarchical outline** (topics → sections → bullets) with optional timestamps, using structured JSON output.  
 4. **Slide Generator Agent** – converts the outline into a polished **PowerPoint (`.pptx`)**.  
+5. **Instructor Guide Agent** – generates a **lecture guideline PDF**, providing a structured delivery plan, engagement tips, and accessibility notes — especially helpful for **new lecturers** preparing their first sessions.
 
 ---
 
@@ -37,6 +38,7 @@ The system follows an **agentic architecture**:
 - **Retriever** → adds domain knowledge context  
 - **Key Points Extractor** → builds outline (structured JSON)  
 - **Slide Generator** → produces PowerPoint slides  
+- **Instructor Guide** → generates structured lecture guideline PDF
 
 📌 **Agentic Flow Diagram:**  
 ![Agentic Flow](docs/agents_flow.png)  
