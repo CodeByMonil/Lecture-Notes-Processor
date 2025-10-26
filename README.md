@@ -40,9 +40,6 @@ The system follows an **agentic architecture**:
 - **Slide Generator** → produces PowerPoint slides  
 - **Instructor Guide** → generates structured lecture guideline PDF
 
-📌 **Agentic Flow Diagram:**  
-![Agentic Flow](docs/agents_flow.png)  
-
 ---
 
 # Quickstart & Setup
