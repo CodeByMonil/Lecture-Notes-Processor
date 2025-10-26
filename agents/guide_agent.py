@@ -243,10 +243,10 @@ def generate_concise_pdf_guide(lecture_title: str, guide_text: str):
     pdf.add_page()
     
     # Color scheme
-    primary_color = (41, 128, 185)    # Blue
-    secondary_color = (52, 152, 219)  # Light blue
-    accent_color = (44, 62, 80)       # Dark blue
-    text_color = (50, 50, 50)         # Dark gray
+    primary_color = (25, 55, 109)      # Midnight blue
+    secondary_color = (49, 130, 206)   # Steel blue
+    accent_color = (12, 35, 64)        # Almost black blue
+    text_color = (44, 54, 69)          # Charcoal blue
     
     # Title section - more compact
     pdf.set_fill_color(*primary_color)
@@ -266,11 +266,11 @@ def generate_concise_pdf_guide(lecture_title: str, guide_text: str):
     process_compact_content(pdf, clean_text, secondary_color, accent_color, text_color)
     
     # Compact footer
-    pdf.set_y(-15)
-    pdf.set_fill_color(*accent_color)
-    pdf.set_text_color(255, 255, 255)
-    pdf.set_font("Arial", "I", 7)
-    pdf.cell(0, 6, "SlideCraft - AI Lecture Processor", 0, 0, "C", True)
+    # pdf.set_y(-15)
+    # pdf.set_fill_color(*accent_color)
+    # pdf.set_text_color(255, 255, 255)
+    # pdf.set_font("Arial", "I", 7)
+    # pdf.cell(0, 6, "SlideCraft - AI Lecture Processor", 0, 0, "C", True)
     
     # Save PDF
     safe_title = "".join(c for c in lecture_title if c.isalnum() or c in (' ', '-', '_')).rstrip()
