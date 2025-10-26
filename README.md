@@ -111,7 +111,7 @@ This system can be offered as an **AI assistant for educators and students**:
 - **Pricing Model:**  
 
     ### Free Version
-    - **Max Upload:** 200MB per file  
+    - **Max Upload:** 250MB per file  
     - **Features:**
     - Basic transcript-to-outline processing
     - ❌ Knowledge Base (KB) Enhancement not available
