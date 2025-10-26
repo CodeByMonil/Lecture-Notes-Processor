@@ -96,32 +96,30 @@ The system follows an **agentic architecture**:
 ---
 
 ## 🔹 Commercialization Pitch
-This system can be offered as an **AI assistant for educators and students**:
+This system can serve as an **AI assistant for educators and students**, streamlining lecture preparation and study material creation.
 
 - **Target Users:**  
-  - University **lecturers/professors** who prepare many presentations  
-  - **Students** who need structured study notes and slides  
+  - University **lecturers, professors, and instructors**  
+  - **Students** needing structured notes or slides  
 
 - **Value Proposition:**  
-  - Saves time and effort in preparing content  
-  - Produces professional-quality, consistent slides  
-  - Enhances focus on **teaching and learning**  
+  - Saves time and effort in preparing lecture content  
+  - Generates **professional-quality, consistent slides** automatically  
+  - Allows users to focus on **teaching, learning, and engagement**  
 
+- **Pricing Plans Comparison:**
 
-- **Pricing Model:**  
+| Feature                          | SlideCraft Free           | SlideCraft Pro (Premium)   |
+|----------------------------------|--------------------------|---------------------------|
+| Max Upload                       | 250MB                    | 1GB                       |
+| Transcript-to-Outline Processing | ✅ Basic                 | ✅ Advanced               |
+| Knowledge Base Enhancement        | ❌ Not Available         | ✅ Included               |
+| Slide Templates & Formatting      | Standard                 | Advanced & Professional   |
+| Upload Limit                      | Limited                  | Unlimited                 |
+| Processing Priority               | Standard                 | Priority                  |
+| Support                           | Community Support        | Premium Support           |
+| Pricing                           | Free Forever             | 999 LKR / Month           |
 
-    ### Free Version
-    - **Max Upload:** 250MB per file  
-    - **Features:**
-    - Basic transcript-to-outline processing
-    - ❌ Knowledge Base (KB) Enhancement not available
-
-    ### Premium Version
-    - **Max Upload:** 1GB per file  
-    - **Features:**
-    - ✅ Access to Knowledge Base (KB) Enhancement
-    - Advanced slide templates & professional formatting
-    - Unlimited uploads
     
 ---
 
