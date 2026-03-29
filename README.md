@@ -13,7 +13,8 @@
 
 
 ## Project Overview
-An AI-powered system that transforms lecture content into clean, readable text, enriched with reliable domain knowledge using Google Gemini 2.5 Flash embeddings. It generates a structured JSON outline from the content, which is then used to produce professional PowerPoint slides and an instructor guide PDF, streamlining lecture preparation and study material creation for educators and students.
+An **AI-powered app** that transforms lecture content into **clean transcripts**, **structured outlines**, and **professional slides**.  
+Built with **Google Gemini 2.5 Flash** and **Streamlit**, it’s designed to help **university lecturers, professors, and students** prepare high-quality presentations and study material efficiently.  
 
 ---
 
